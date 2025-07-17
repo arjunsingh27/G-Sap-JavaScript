@@ -2,10 +2,10 @@
 
 @import "tailwindcss";
 
-@font-face {
+/* @font-face {
     font-family: "Modern Negra";
     src: url("/fonts/Modern Negra Demo.ttf") format("truetype");
-}
+} */
 
 @theme {
     --color-yellow: #e7d393;
@@ -13,7 +13,14 @@
     --font-sans: "Mona Sans", sans-serif;
     --font-modern-negra: "Modern Negra", sans-serif;
     --font-serif: "DM Serif Text", serif;
+    --font-quiche: "quiche-flare", sans-serif;
 }
+
+@utility font-quiche {
+  font-family: var(--font-quiche);
+  font-weight: 800;
+}
+
 
 html,
 body {
@@ -23,6 +30,12 @@ body {
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
+nav {
+  background: rgba(0,0,0,0.1); /* Slight transparency */
+  position: fixed; top: 0; width: 100%;
+  z-index: 999;
+}
+
 
 @utility flex-center {
     @apply flex justify-center items-center;
@@ -80,7 +93,7 @@ body {
         }
 
         ul {
-            @apply flex-center lg:gap-12 gap-7;
+            @apply flex-center  lg:gap-12 gap-7;
         }
     }
 

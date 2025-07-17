@@ -35,7 +35,7 @@ const Hero = () => {
     })
     return (
         <section id='hero' className='noisy'>
-            <h1 className='title'>Mojito</h1>
+            <h1 className='title  font-quiche text-[60px] sm:text-[100px] md:text-[200px]'>NikxarJun</h1>
             <img className='left-leaf'
                 src="./images/hero-left-leaf.png"
                 alt="left-leaf" />
@@ -43,21 +43,21 @@ const Hero = () => {
             <img className='right-leaf'
                 src="./images/hero-right-leaf.png"
                 alt="right-leaf" />
-            <div className="body">
-                <div className="content">
-                    <div className="space-y-5 hidden md:block">
-                        <p>Cool. Crisp. Classic</p>
-                        <p className='subtitle'>
-                            Sip the Sprit <br /> of Summer
-                        </p>
-                    </div>
-                    <div className="view-cocktails">
-                        <p className="subtitle">
-                            Every cocktail on our menu is a blend of Premium ingredients , creative and flair , and timeless recipes - designed delight you senses..
-                        </p>
-                    </div>
-                </div>
-            </div>
+           <div className="body">
+    <div className="content">
+        <div className="space-y-5 hidden md:block">
+            <p>Creative. Dynamic. Professional</p>
+            <p className="subtitle">Crafting Stories <br /> Frame by Frame
+            </p>
+        </div>
+        <div className="view-cocktails">
+            <p className="subtitle">
+                I bring your ideas to life through seamless video editing, cinematic transitions, and stunning visuals. Every project is designed to captivate and engage your audience.
+            </p>
+        </div>
+    </div>
+</div>
+
         </section>
 
 

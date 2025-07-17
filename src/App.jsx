@@ -8,8 +8,8 @@ const App = () => {
     <main>
       <Navbar/>
       <Hero/>
-      <div className='h-dvh bg-black'>
-
+      <div className=' h-dvh '>
+<div className="noisy"></div>
       </div>
     </main>
     
