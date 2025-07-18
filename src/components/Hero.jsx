@@ -47,7 +47,7 @@ const Hero = () => {
     <div className="content">
         <div className="space-y-5 hidden md:block">
             <p>Creative. Dynamic. Professional</p>
-            <p className="subtitle">Crafting Stories <br /> Frame by Frame
+            <p className="subtitle">Crafting Stories <br /> Frame by Frame .
             </p>
         </div>
         <div className="view-cocktails">
