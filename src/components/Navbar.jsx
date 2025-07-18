@@ -6,32 +6,16 @@ import { navLink } from '../../constants/index';
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
+  const overlayRef = useRef(null);
   const tl = useRef(gsap.timeline({ paused: true }));
 
   useGSAP(() => {
-    // Navbar blur animation on scroll
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: 'nav',
-        start: 'top top',
-        end: '+=300',
-        scrub: true,
-      }
-    }).fromTo(
-      'nav',
-      { backdropFilter: 'blur(0px)' },
-      { backdropFilter: 'blur(10px)', ease: 'power1.inOut' }
-    );
-
-    // GSAP menu open/close animation
+    // GSAP popup animation
     tl.current = gsap.timeline({ paused: true })
-      .fromTo(menuRef.current, 
-        { x: '100%' },  // Start hidden (off screen)
-        { x: '0%', duration: 0.5, ease: 'power3.out' }  // Slide in
-      )
-      .fromTo(menuRef.current.querySelectorAll('li'), 
-        { opacity: 0, x: 30 },
-        { opacity: 1, x: 0, stagger: 0.1, duration: 0.4 },
+      .to(overlayRef.current, { opacity: 1, duration: 0.3, pointerEvents: 'auto' })
+      .fromTo(menuRef.current,
+        { scale: 0.8, opacity: 0, y: -30 },
+        { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' },
         '<0.1'
       );
   });
@@ -67,16 +51,26 @@ const Navbar = () => {
         <span className="w-6 h-0.5 bg-white"></span>
       </button>
 
-      {/* Mobile Menu */}
+      {/* Overlay */}
+      <div
+        ref={overlayRef}
+        className="fixed inset-0 bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none z-40"
+        onClick={toggleMenu}
+      ></div>
+
+      {/* Popup Menu */}
       <div
         ref={menuRef}
-        className="fixed top-0 right-0 w-3/4 h-full bg-black/90 backdrop-blur-lg flex flex-col items-center justify-center gap-6 text-xl text-white"
-        style={{ transform: 'translateX(100%)' }}
+        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 rounded-3xl bg-[#111] text-white p-8 flex flex-col gap-6 text-center z-50 shadow-2xl"
+        style={{ opacity: 0 }}
       >
-        <ul className="flex flex-col gap-6">
+        <h2 className="text-xl font-bold mb-4">Menu</h2>
+        <ul className="flex flex-col gap-4">
           {navLink.map((link) => (
             <li key={link.id}>
-              <a href={link.link} onClick={toggleMenu}>{link.title}</a>
+              <a href={link.link} className="hover:text-yellow-400 transition" onClick={toggleMenu}>
+                {link.title}
+              </a>
             </li>
           ))}
         </ul>
